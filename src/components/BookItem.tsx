@@ -18,6 +18,11 @@ export function BookItem({ book }: Props) {
 		e.dataTransfer.setData(DRAG_EVENTS.ADD_FAVORITES, book.ISBN)
 	}
 
+	const handleSpeech = () => {
+		const utterance = new SpeechSynthesisUtterance(book.synopsis)
+		window.speechSynthesis.speak(utterance)
+	}
+
 	return (
 		<li
 			className='relative bg-gray-50 border border-gray-200 rounded-2xl p-2 flex justify-between items-center h-44'
@@ -29,7 +34,7 @@ export function BookItem({ book }: Props) {
 					<button role='add-button' className='cursor-pointer' onClick={handleAddToFavorites}>
 						<AddIcon />
 					</button>
-					<button role='speak-button'>
+					<button role='speak-button' onClick={handleSpeech}>
 						<SpeakIcon />
 					</button>
 					<p className='bg-gray-200 py-1 px-2 text-gray-400 border-gray-300 border rounded-full text-xs font-bold'>

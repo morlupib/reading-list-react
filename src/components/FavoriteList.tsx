@@ -59,6 +59,7 @@ export function FavoriteList({ favorites }: Props) {
 			className='flex flex-col w-full gap-3 h-full'
 			onDrop={handleDrop}
 			onDragOver={(e) => e.preventDefault()}
+			role='favorites-list'
 		>
 			{favorites.map((book, index) => (
 				<FavoriteItem

@@ -45,9 +45,9 @@ export function useBook() {
 
 	const availableBooks = useMemo(() => {
 		return favorites.length !== 0
-			? books.filter(
-					(availableBook) => !favorites.some((favorite) => favorite.ISBN === availableBook.ISBN)
-			  )
+			? books.filter((availableBook) => {
+					return !favorites.some((favorite) => favorite.ISBN === availableBook.ISBN)
+			  })
 			: books
 	}, [books, favorites])
 

@@ -5,7 +5,7 @@ import { useMenu } from './store'
 import SideMenu from './components/SideMenu'
 
 export function App() {
-	const { favorites, getBooks, loading, setLoading, updateFavorites } = useBook()
+	const { getBooks, loading, setLoading, updateFavorites } = useBook()
 	const { getFromLocalStorage } = useLocalStorage()
 	const { isOpen } = useMenu()
 
@@ -31,7 +31,7 @@ export function App() {
 	return (
 		<main className='flex pt-4 h-screen'>
 			<Books />
-			<section className='hidden lg:flex'>{favorites.length > 0 && <Favorites />}</section>
+			<Favorites />
 			{isOpen && <SideMenu />}
 		</main>
 	)
